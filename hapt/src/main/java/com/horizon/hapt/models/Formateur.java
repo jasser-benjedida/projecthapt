@@ -1,13 +1,13 @@
 package com.horizon.hapt.models;
 
-    private int expereince;
+private int Expereince;
 
     public Formateur(long id, int expereince)
         this.setId(id);
         this.setExpereince(expereince);
     }
 
-    public long getId() {
+  public long getId() {
         return id;
     }
 
@@ -22,4 +22,3 @@ package com.horizon.hapt.models;
     public void setId(long id) {
         this.id = id;
     }
-

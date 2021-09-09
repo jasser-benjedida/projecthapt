@@ -9,7 +9,7 @@ public class User {
     private String password;
     private String nom;
     private String prenom;
-    private String addrese;
+    private String address;
     private int tel;
     private Date dateN;
     private int cin;
@@ -29,6 +29,14 @@ public class User {
         this.setNiveau(niveau);
         this.setMail(mail);
 
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public List<Etudiant> getListeEtudiant() {
