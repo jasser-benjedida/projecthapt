@@ -1,22 +1,44 @@
 package com.horizon.hapt.models;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class User {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(schema = "horizondb", uniqueConstraints = @UniqueConstraint(columnNames = "mail"))
+
+public class User implements Serializable {
+    private static final long serialVersionUID = 1l;
+    @Column
     private long id;
+    @Column
     private String mail;
+    @Column
     private String password;
+    @Column
     private String nom;
+    @Column
     private String prenom;
+    @Column
     private String address;
+    @Column
     private int tel;
+    @Column
     private Date dateN;
+    @Column
     private int cin;
+    @Column
     private String niveau;
-    private List<Role> listRole;
-    private List<Etudiant> listeEtudiant;
-    private List<Entreprise> lisetEntreprise;
+    @ManyToOne
+    @JoinColumn(name = "role", referencedColumnName = "id")
+    private Role role;
 
     public User(String nom, String prenom, String addrese, int tel, String password, Date dateN, int cin, String niveau,
             String mail, String expereince, long id) {
@@ -39,36 +61,12 @@ public class User {
         this.address = address;
     }
 
-    public List<Etudiant> getListeEtudiant() {
-        return listeEtudiant;
+    public Role getRole() {
+        return role;
     }
 
-    public void setListeEtudiant(List<Etudiant> listeEtudiant) {
-        this.listeEtudiant = listeEtudiant;
-    }
-
-    public List<Entreprise> getLisetEntreprise() {
-        return lisetEntreprise;
-    }
-
-    public void setLisetEntreprise(List<Entreprise> lisetEntreprise) {
-        this.lisetEntreprise = lisetEntreprise;
-    }
-
-    public List<Etudiant> getEtudiant() {
-        return getEtudiant();
-    }
-
-    public void setEtudiant(List<Etudiant> etudiant) {
-        this.listeEtudiant = etudiant;
-    }
-
-    public List<Role> getListRole() {
-        return listRole;
-    }
-
-    public void setListRole(List<Role> listRole) {
-        this.listRole = listRole;
+    public void setRole(Role Role) {
+        this.role = role;
     }
 
     public long getId() {
@@ -116,11 +114,11 @@ public class User {
     }
 
     public String getAddrese() {
-        return addrese;
+        return address;
     }
 
     public void setAddrese(String addrese) {
-        this.addrese = addrese;
+        this.address = address;
     }
 
     public String getPrenom() {
@@ -145,6 +143,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public void setMail(String mail) {

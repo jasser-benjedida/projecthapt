@@ -3,7 +3,7 @@ package com.horizon.hapt.models;
 private int Expereince;
 
     public Formateur(long id, int expereince)
-        this.setId(id);
+       this.setId(ID)
         this.setExpereince(expereince);
     }
 
