@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import javassist.SerialVersionUID;
+
 @Entity
 @Table(schema = "horizondb", uniqueConstraints = @UniqueConstraint(columnNames = "nom"))
 public class Role implements Serializable {
@@ -38,5 +40,8 @@ public class Role implements Serializable {
         this.id = id;
     }
 
-    public long
+    public long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
 }
